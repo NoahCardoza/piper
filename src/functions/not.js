@@ -1,10 +1,10 @@
 const curry = require('./curry')
-const istype = require('./istype')
+const is = require('./is')
 const equals = require('./equals')
 const debug = require('./debug')
 const { unfinished, unset } = require('./types')
 
-const isFunction = istype('function')
+const isFunction = is('function')
 const isUnset = equals(unset)
 
 module.exports = curry(

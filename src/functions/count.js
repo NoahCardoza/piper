@@ -1,8 +1,7 @@
 const curry = require('./curry');
-const istype = require('./istype');
-const debug = require('./debug');
+const is = require('./is');
 
-const isFn = istype('function')
+const isFn = is('function')
 
 module.exports = debug(curry(
   (fnOrVal, arr) => arr.reduce(

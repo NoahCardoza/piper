@@ -1,56 +1,92 @@
-const P = require('./src');
-
-const mod = P.curry(
-  (x, y) => y % x
-)
-
-const arr = [0, 1, 0, 3, 0, 5, 6, 7, 8, 9, 10]
-
-const flow = P.pipe(
-  P.filter(P.not(mod(5))),
-  console.log
-)(arr)
-
-// const add = x => y => x + y
-// const wait = s => () => new Promise((resolve, reject) => {
-//   setTimeout(() => resolve(42), s)
-// })
+// // const Safe = val => (
+// //   typeof val == 'function' ? new Fn(val)
+// //   : new Other(val)
+// // )
+// //
+// // class Fn {
+// //   constructor(val) {
+// //     this.val = val
+// //   }
+// //   eq(x) {
+// //     return this.val(x)
+// //   }
+// // }
+// //
+// // class Other {
+// //   constructor(val) {
+// //     this.val = val
+// //   }
+// //   eq(x) {
+// //     return x == this.val
+// //   }
+// // }
+// const preserve = (obj, key) => (...args) => obj[key](...args) //fn(...args)
 //
-// const flow = P.pipe(
-//   add(1),
-//   P.fork(
-//     add(8),
-//     wait(2000)
-//   )
-// )
-//
-// flow(2).then(e => {
-//   console.log(42, e)
-// })
-// .catch(e => {
-//   console.log(e);
-// })
-
-// const add = P.curry((x, y) => x + y)
-//
-//
-// const add5all = P.pipe(
-//   P.map(add(5))
-// )
+// const all = preserve(Promise, 'all')//.bind(Promise)
 //
 // console.log(
-//   P.map(add(5))([1,2,3,4,5])
-// );
-
-// const add = P.curry((x, y) => x + y)
-// console.log(add(1, 2))
-// console.log(add(1)(2))
-
-//
-// const mut = P.curry((x, y) => x * y)
-//
-// const mutBy6 = mut(6)
-//
-// console.log(
-//   mut(6)(7)
+//   all([1,2,3])
+//   // .then(c  onsole.log)
 // )
+
+const x = [
+  "dqxEFgKe2Go",
+  "gI3Zn9-tuq8",
+  "3aliik9qxYY",
+  "AsOhTFMDGk8",
+  "iVzH-fDa6HA",
+  "NLmqqimN_6M",
+  "ZilFychi4Mk",
+  "sxtcmgbDYTE",
+  "Odum0r9gxA8",
+  "zyfiwK6wvIg",
+  "ukitboNzhTw",
+  "BvmbCRPif7w",
+  "AC-3RJHzEU8",
+  "xxXluXpgJ1Q",
+  "WB1YJjQuSms"
+]
+
+const y = [
+  "dqxEFgKe2Go",
+  "gI3Zn9-tuq8",
+  "3aliik9qxYY",
+  "AsOhTFMDGk8",
+  "iVzH-fDa6HA",
+  "NLmqqimN_6M",
+  "ZilFychi4Mk",
+  "sxtcmgbDYTE",
+  "Odum0r9gxA8",
+  "zyfiwK6wvIg",
+  "ukitboNzhTw",
+  "BvmbCRPif7w",
+  "AC-3RJHzEU8",
+  "xxXluXpgJ1Q",
+  "WB1YJjQuSms",
+  "GsF05B8TFWg",
+  "8IiVqwpQLYw",
+  "EFmjgUgltzc",
+  "RqcjBLMaWCg",
+  "Z6pYo3AqgkY",
+  "5Wiio4KoGe8",
+  "w0EF3AxJwLU",
+  "wU2F3QOGg8s",
+  "xbmrgX8M5dE",
+  "HIfriX8NGzY",
+  "KuNUepg9oSQ",
+  "jLHVM5neZf8",
+  "E7kdoS_SsO0"
+]
+
+console.log(
+  y.reduce(
+    (all, el) => (x.includes(el)
+      ? all
+      : all.concat(el)
+    ),
+    []
+  )
+);
+
+
+// console.log(new Set());
